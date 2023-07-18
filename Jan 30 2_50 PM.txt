@@ -1,0 +1,52 @@
+Linear Regression:
+-----------------
+assign X, y
+split it
+from sklearn.linear_model import LinearRegression  
+regressor= LinearRegression()  
+regressor.fit(x_train, y_train)  
+y_pred= regressor.predict(x_test)  
+x_pred= regressor.predict(x_train)  
+================================================================
+Naive Bayes
+from sklearn.naive_bayes import GaussianNB
+same shit as above
+================================================================
+Decision Tree
+-------------
+from sklearn.tree import DecisionTreeClassifier
+clf_gini = DecisionTreeClassifier(criterion = "gini",
+            random_state = 100,max_depth=3, min_samples_leaf=5)
+================================================================
+confusion matrix:
+from sklearn.linear_model import LogisticRegression
+from sklearn.metrics import confusion_matrix
+#Fit the model
+logreg = LogisticRegression(C=1e5)
+logreg.fig(X,y)
+#Generate predictions with the model using our X values
+y_pred = logreg.predict(X)
+#Get the confusion matrix
+cf_matrix = confusion_matrix(y, y_pred)
+print(cf_matrix)
+
+confusion_matrix(y_test,pred)
+
+import seaborn as sns
+sns.heatmap(cf_matrix, annot=True)
+==============================================================
+AdaBoost:
+
+from sklearn.ensemble import AdaBoostClassifier
+
+XGBoost
+import xgboost as xgb
+xgb_model = xgb.XGBRegressor(objective="reg:linear", random_state=42)
+
+xgb_model.fit(X, y)
+
+y_pred = xgb_model.predict(X)
+
+mse=mean_squared_error(y, y_pred)
+
+print(np.sqrt(mse))
